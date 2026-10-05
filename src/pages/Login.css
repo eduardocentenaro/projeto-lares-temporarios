@@ -1,0 +1,77 @@
+/* Fundo da página com gradiente dourado */
+.login-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  background: linear-gradient(135deg, #f6d365, #c9922b);
+}
+
+/* Card branco no centro */
+.login-card {
+  width: 100%;
+  max-width: 400px;
+  padding: 32px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+}
+
+.login-titulo {
+  margin: 0;
+  text-align: center;
+  color: #b8860b;
+  font-size: 26px;
+}
+
+.login-subtitulo {
+  margin: 8px 0 24px;
+  text-align: center;
+  color: #666;
+  font-style: italic;
+}
+
+.login-card label {
+  margin-bottom: 6px;
+  font-weight: bold;
+  color: #333;
+}
+
+.login-card input {
+  padding: 12px;
+  margin-bottom: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+.login-card input:focus {
+  outline: none;
+  border-color: #b8860b;
+}
+
+/* Botão largo dourado */
+.login-botao {
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #f6d365, #c9922b);
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.login-botao:hover {
+  opacity: 0.9;
+}
+
+.login-rodape {
+  margin: 16px 0 0;
+  text-align: center;
+  font-size: 13px;
+  color: #888;
+}
