@@ -1,9 +1,15 @@
+import { Routes, Route } from 'react-router-dom'
 import Login from './pages/Login'
+import Lares from './pages/Lares'
 
-// Por enquanto o App só mostra a tela de login.
-// Nos próximos requisitos vamos adicionar as outras telas.
+// Aqui ficam as rotas (caminhos) do site
 function App() {
-  return <Login />
+  return (
+    <Routes>
+      <Route path="/" element={<Login />} />
+      <Route path="/lares" element={<Lares />} />
+    </Routes>
+  )
 }
 
 export default App
