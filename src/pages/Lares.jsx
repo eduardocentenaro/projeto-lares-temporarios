@@ -1,47 +1,34 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Menu from '../components/Menu'
 import LarCard from '../components/LarCard'
 import './Lares.css'
 
-// Lares de exemplo, só para montar a tela.
-// No Requisito 6 isso vai ser trocado pelos dados que vêm da API.
-const laresExemplo = [
-  {
-    id: 1,
-    nome: 'Casa do Ouro',
-    tipo: 'Casa',
-    bairro: 'Jardim das Flores',
-    quantidade_pets: 3,
-    descricao: 'Fachada espaçosa com varanda ensolarada e área cercada perfeita para acolhimento temporário.',
-    imagem: 'https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=500',
-    localizacao: 'São Paulo, SP',
-  },
-  {
-    id: 2,
-    nome: 'Lar Sol Nascente',
-    tipo: 'Apartamento',
-    bairro: 'Copacabana',
-    quantidade_pets: 1,
-    descricao: 'Apartamento confortável com área externa coberta, ideal para acolhimento com supervisão familiar.',
-    imagem: '',
-    localizacao: 'Rio de Janeiro, RJ',
-  },
-  {
-    id: 3,
-    nome: 'Recanto do Ouro',
-    tipo: 'Casa',
-    bairro: 'Jardim Botânico',
-    quantidade_pets: 4,
-    descricao: 'Casa familiar com grande quintal e entrada ampla, ideal para acolhimento com espaço ao ar livre.',
-    imagem: 'https://images.unsplash.com/photo-1501183638710-841dd1904471?w=500',
-    localizacao: 'Belo Horizonte, MG',
-  },
-]
-
 function Lares() {
-  const [lares] = useState(laresExemplo)
+  const [lares, setLares] = useState([]) // lista que vem da API
+  const [erro, setErro] = useState('') // mensagem de erro, se der problema
   const [busca, setBusca] = useState('') // texto da pesquisa
   const [filtro, setFiltro] = useState('Todos') // Todos, Casa ou Apartamento
+
+  // useEffect roda quando a tela abre: busca os lares na API
+  useEffect(() => {
+    async function buscarLares() {
+      try {
+        const resposta = await fetch('/lares')
+
+        if (!resposta.ok) {
+          throw new Error('Erro ao buscar os lares')
+        }
+
+        const dados = await resposta.json()
+        setLares(dados) // guarda a resposta no estado
+      } catch (e) {
+        console.error(e)
+        setErro('Não foi possível carregar os lares. A API está ligada?')
+      }
+    }
+
+    buscarLares()
+  }, [])
 
   // Filtra a lista pelo tipo e pelo texto digitado
   const laresFiltrados = lares.filter((lar) => {
@@ -92,13 +79,15 @@ function Lares() {
           </div>
         </div>
 
+        {erro && <p className="lares-erro">{erro}</p>}
+
         <div className="lares-grade">
           {laresFiltrados.map((lar) => (
             <LarCard key={lar.id} lar={lar} />
           ))}
         </div>
 
-        {laresFiltrados.length === 0 && (
+        {!erro && laresFiltrados.length === 0 && (
           <p className="lares-vazio">Nenhum lar encontrado.</p>
         )}
       </main>
