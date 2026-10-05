@@ -1,0 +1,75 @@
+body {
+  background: #faf6ec;
+}
+
+.lares-conteudo {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 24px 16px;
+}
+
+.lares-titulo {
+  margin: 0;
+  color: #b8860b;
+}
+
+.lares-subtitulo {
+  margin: 4px 0 24px;
+  color: #666;
+}
+
+/* Linha com a busca e os filtros */
+.lares-barra {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.lares-busca {
+  flex: 1;
+  min-width: 220px;
+  padding: 12px 16px;
+  border: 1px solid #ccc;
+  border-radius: 999px;
+  font-size: 16px;
+}
+
+.lares-busca:focus {
+  outline: none;
+  border-color: #b8860b;
+}
+
+.lares-filtros {
+  display: flex;
+  gap: 8px;
+}
+
+.filtro {
+  padding: 10px 20px;
+  border: 1px solid #c9922b;
+  border-radius: 999px;
+  background: #fff;
+  color: #8a6508;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+/* Filtro selecionado fica dourado */
+.filtro-ativo {
+  background: linear-gradient(135deg, #f6d365, #c9922b);
+  color: #fff;
+  font-weight: bold;
+}
+
+/* Grade de 3 colunas (no celular vai diminuindo) */
+.lares-grade {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.lares-vazio {
+  text-align: center;
+  color: #888;
+}
