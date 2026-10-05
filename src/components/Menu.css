@@ -1,0 +1,53 @@
+/* Barra horizontal no topo */
+.menu {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 16px 24px;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.menu-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #b8860b;
+  font-size: 20px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.menu-botoes {
+  display: flex;
+  gap: 12px;
+}
+
+/* Botão "Lares" dourado em forma de pílula */
+.menu-link {
+  padding: 8px 20px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #f6d365, #c9922b);
+  color: #fff;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+/* Botão "Sair" vermelho */
+.menu-sair {
+  padding: 8px 20px;
+  border: none;
+  border-radius: 999px;
+  background: #d9534f;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.menu-link:hover,
+.menu-sair:hover {
+  opacity: 0.9;
+}
